@@ -1,24 +1,19 @@
-<<<<<<< HEAD
-INDEX VERSION 1.127+/Users/Jonas/Documents/Skola/Programmering 2/programmering4/.metadata/.plugins/org.eclipse.jdt.core
-887205883.index
-=======
 INDEX VERSION 1.127+C:\Users\Anton\Documents\GitHub\programmering4\.metadata\.plugins\org.eclipse.jdt.core
-4051341462.index
-3915474253.index
-3304681068.index
-2868956584.index
-314730747.index
-3910820040.index
-1518773393.index
-1597346485.index
-2125130460.index
-2671173747.index
-3104682415.index
 1155594363.index
+3104682415.index
+314730747.index
 2713608433.index
-3883842682.index
-919905438.index
-1918167158.index
 504399471.index
+1518773393.index
+3304681068.index
+3915474253.index
 3034152639.index
->>>>>>> origin/master
+3910820040.index
+1597346485.index
+2671173747.index
+919905438.index
+4051341462.index
+2868956584.index
+3883842682.index
+1918167158.index
+2125130460.index
