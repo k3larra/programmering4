@@ -43,3 +43,6 @@ local.properties
 
 # STS (Spring Tool Suite)
 .springBeans
+.metadata/version.ini
+.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt
+.metadata/.log
