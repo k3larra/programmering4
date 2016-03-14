@@ -10,7 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-public class gui extends JFrame {
+public class Gui extends JFrame {
 
 	private JPanel contentPane;
 
@@ -21,7 +21,7 @@ public class gui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					gui frame = new gui();
+					Gui frame = new Gui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +33,7 @@ public class gui extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public gui() {
+	public Gui() {
 		
 		setBackground(Color.GRAY);Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double width = screenSize.getWidth();
@@ -49,7 +49,7 @@ public class gui extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("testimg");
-		lblNewLabel.setIcon(new ImageIcon(gui.class.getResource("/img/cat.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(Gui.class.getResource("/img/skane.png")));
 		lblNewLabel.setBounds(0, 0, (int)width, (int)height);
 		contentPane.add(lblNewLabel);
 		
