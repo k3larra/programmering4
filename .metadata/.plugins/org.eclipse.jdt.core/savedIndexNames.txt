@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 INDEX VERSION 1.127+C:\Users\Anton\Documents\GitHub\programmering4\.metadata\.plugins\org.eclipse.jdt.core
 3915474253.index
 3839191973.index
@@ -8,3 +9,7 @@ INDEX VERSION 1.127+C:\Users\Anton\Documents\GitHub\programmering4\.metadata\.pl
 3233978478.index
 3035684834.index
 1114912402.index
+=======
+INDEX VERSION 1.127+/Users/aminamuftic/Documents/Interaktionsdesign 1/Programmering II/Programmering - grupp 4/.metadata/.plugins/org.eclipse.jdt.core
+4045395474.index
+>>>>>>> Stashed changes
