@@ -49,7 +49,7 @@ public class Image1 extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("testimg");
-		lblNewLabel.setIcon(new ImageIcon(Image1.class.getResource("/img/MalmöCMockup.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(Image1.class.getResource("/img/skane.png")));
 		lblNewLabel.setBounds(0, 0, (int)width, (int)height);
 		contentPane.add(lblNewLabel);
 		
