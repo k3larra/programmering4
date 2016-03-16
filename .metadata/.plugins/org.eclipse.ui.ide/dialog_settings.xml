@@ -2,9 +2,10 @@
 <section name="Workbench">
 	<section name="ExternalProjectImportWizard">
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
-		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Anton\Documents\GitHub\Skanetrafiken\Grupparbete"/>
 			<item value="/Users/Jonas/Documents/Skola/Programmering 2/programmering4/Project1"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
