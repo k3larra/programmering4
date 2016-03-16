@@ -27,6 +27,20 @@ public class Journey {
 	public Calendar getDepDateTime() {
 		return depDateTime;
 	}
+	/* *
+	 *Den riktiga avgångstiden inkl. försening
+	*@return String for Departure time with delay
+	 * */
+	
+	public String realDepTime(){
+ 		int j=0;
+ 		int i= Integer.parseInt(timeToDeparture);
+ 		if(depTimeDeviation!=""){
+ 		j= Integer.parseInt(depTimeDeviation);
+ 		}
+ 		String s = Integer.toString(i+j);
+ 		return s;
+ 	}
 /* *
  * Samlar all tillgänglig info från en viss Journey
  * */
@@ -126,6 +140,5 @@ public class Journey {
 	public void setEndStation(Station endStation) {
 		this.endStation = endStation;
 	}
-
 	
 }
