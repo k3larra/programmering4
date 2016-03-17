@@ -1,7 +1,6 @@
 package se.mah.k3.grupp4;
 
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -13,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class SkaneGUI extends JFrame {
+public class TestGUI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,7 +23,7 @@ public class SkaneGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SkaneGUI frame = new SkaneGUI();
+					TestGUI frame = new TestGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,8 +35,10 @@ public class SkaneGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SkaneGUI() {
-		setBackground(Color.GRAY);Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	public TestGUI() {
+		
+		setBackground(Color.GRAY);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double width = screenSize.getWidth();
 		double height = screenSize.getHeight();
 
@@ -51,7 +52,7 @@ public class SkaneGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Mock Up");
-		lblNewLabel.setIcon(new ImageIcon(SkaneGUI.class.getResource("img/mockUp.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(TestGUI.class.getResource("img/mockUpSmall.jpg")));
 		lblNewLabel.setBounds(0, 0, (int)width, (int)height);
 		contentPane.add(lblNewLabel);
 		

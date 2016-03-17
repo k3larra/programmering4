@@ -29,16 +29,19 @@ public class Journey {
 	}
 	/* *
 	 *Den riktiga avgångstiden inkl. försening
-	*@return String for Departure time with delay
+	 *@return String for Departure time with delay
 	 * */
 	
 	public String realDepTime(){
- 		int j=0;
+ 		int j = 0;
  		int i= Integer.parseInt(timeToDeparture);
+ 		
  		if(depTimeDeviation!=""){
  		j= Integer.parseInt(depTimeDeviation);
  		}
+ 		
  		String s = Integer.toString(i+j);
+ 		
  		return s;
  	}
 /* *
@@ -55,7 +58,6 @@ public class Journey {
 		+"\nTrafikslag: " +lineTypeName +"\n------------------------\n");
 		
 		if(depTimeDeviation != ""){
-			//!="" ||depTimeDeviation !="0"||depTimeDeviation !=" "||depTimeDeviation !=null){
 			s = ("OBS! Ankomsten är försenad med: "+arrTimeDeviation +"minuter\n"+s);
 		}
 		if(arrTimeDeviation != ""){

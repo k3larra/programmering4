@@ -1,3 +1,4 @@
+
 package se.mah.k3.grupp4;
 
 /**
@@ -55,8 +56,10 @@ public class Station implements Comparable<Station> {
 	public String getStationName() {
 		return stationName;
 	}
-
-	public String getInfo() { // Samla all info i en sträng
+/**
+ *  Samla all info i en sträng
+ * */
+	public String getInfo() {
 		String all = ("Hållplats: " + this.getStationName() + "\nStationsnummer: " + this.getStationNbr() + "\nLatitud:"
 				+ this.getLatitude() + "\nLongitude: " + this.getLongitude() + "\n\n");
 		return all;
