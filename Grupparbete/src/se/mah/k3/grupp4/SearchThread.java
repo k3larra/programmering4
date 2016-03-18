@@ -102,15 +102,22 @@ public class SearchThread extends Thread {
 		Gui2.setTimeOnLabel(journeys88an.getJourneys().get(0).realDepTime() + " min",
 				journeys88an.getJourneys().get(1).realDepTime() + " min", 88);
 	}
+/*
 	public void loop() {
-			
-			
+		List<String> thisSearchURL= new ArrayList<String>();
+		thisSearchURL.add("80002");
+		thisSearchURL.add("80600");
+		thisSearchURL.add("80002");
+		thisSearchURL.add("801100");
+
 			for(int i=0; i>10; i++){
-				List<String> thisSearchURL= new ArrayList<String>();
-				//StringList<> thisSearchURL[] = new(Constants.getURL("80002", "80600", 2) , (Constants.getURL("80002", "80600", 2)));
-				Journeys journeys[] = new Journeys[i];
-				journeys[i] = Parser.getJourneys(searchURL);
+				//Journeys journeys = Constants.getURL(thisSearchURL.get(i),thisSearchURL.get(i),2);
+
+				Journeys journeys = new Journeys;
+				journeys.addJourney(Constants.getURL(thisSearchURL.get(i),thisSearchURL.get(i),2)); //= Parser.getJourneys(searchURL);
+				TestGUI.setTimeOnLabel(journeys.getJourneys().get(0).realDepTime() + " min", 
+						journeys.getJourneys().get(0).realDepTime() + " min",(i));
 			}
 			
-	}
+	}*/
 }
