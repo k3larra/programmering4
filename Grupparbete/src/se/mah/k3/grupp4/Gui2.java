@@ -140,7 +140,7 @@ public class Gui2 extends JFrame {
 
 		label_Clock = new JLabel("");
 		label_Clock.setFont(new Font("Gill Sans MT", Font.PLAIN, 30));
-		label_Clock.setBounds(0, 151, 100, 51);
+		label_Clock.setBounds(1201, 43, 165, 117);
 		contentPane.add(label_Clock);
 
 		label_11 = new JLabel("");
