@@ -41,7 +41,7 @@ public class Gui2 extends JFrame {
 	private static JLabel label_20;
 
 
-	private long timer;
+	private static long timer;
 	private long oldTimer;
 	private Calendar cal = Calendar.getInstance();
 
@@ -65,6 +65,9 @@ public class Gui2 extends JFrame {
 	 * Create the frame.
 	 */
 	public Gui2() {
+		
+		Thread clock= new ClockThread();
+		clock.start();
 
 		setBackground(Color.GRAY);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -80,14 +83,14 @@ public class Gui2 extends JFrame {
 		contentPane.setLayout(null);
 		Thread t = new SearchThread();
 		t.start();
-		//
-		// if(timer> oldTimer+30000){
-		// Thread t= new SearchThread();
-		// t.start();
-		//
-		// setTimer(cal.getTimeInMillis();
-		// oldTimer=timer;
-		// }
+		
+		 if( timer > (oldTimer+30000) ){
+		 Thread update= new SearchThread();
+		 update.start();
+		
+		 setTimer(cal.getTimeInMillis());
+		 oldTimer=timer;
+		 }
 
 		label = new JLabel("");
 		label.setFont(new Font("Rockwell", Font.BOLD, 30));
@@ -145,8 +148,9 @@ public class Gui2 extends JFrame {
 		contentPane.add(label_9);
 
 		label_Clock = new JLabel("");
-		label_Clock.setFont(new Font("Gill Sans MT", Font.PLAIN, 30));
-		label_Clock.setBounds(1201, 43, 165, 117);
+		label_Clock.setForeground(Color.WHITE);
+		label_Clock.setFont(new Font("Gill Sans MT", Font.PLAIN, 48));
+		label_Clock.setBounds(1621, 43, 165, 117);
 		contentPane.add(label_Clock);
 
 		label_11 = new JLabel("");
@@ -269,5 +273,13 @@ public class Gui2 extends JFrame {
 			label_20.setText(time);
 			label_19.setText(time2);
 		}
+		
+	}
+
+	/**
+	*Sätter tiden i klockfältet
+	*/
+	public static void setTimeOnLabel(String time){
+		label_Clock.setText(time);			
 	}
 }

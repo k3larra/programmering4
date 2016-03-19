@@ -12,8 +12,7 @@ import se.mah.k3.grupp4.Parser;
 
 public class SearchThread extends Thread {
 	String searchURL;
-	Journeys journeys;
-	Journeys journeys3an;
+	 
 
 	/** Prints info for debug */
 	public void print(Journeys journeys) {
@@ -31,13 +30,12 @@ public class SearchThread extends Thread {
 			e.printStackTrace();
 		}
 	}
-
 	@Override
 	public void run() {
 
 		// mot c 2an
 		searchURL = Constants.getURL("80002", "80600", 2);
-		journeys = Parser.getJourneys(searchURL);
+		Journeys journeys = Parser.getJourneys(searchURL);
 
 		print(journeys);
 
@@ -46,7 +44,7 @@ public class SearchThread extends Thread {
 
 		// mot c 3an
 		searchURL = Constants.getURL("80002", "80110", 2);
-		journeys3an = Parser.getJourneys(searchURL);
+		Journeys journeys3an = Parser.getJourneys(searchURL);
 		print(journeys3an);
 
 		// Send to GUI
@@ -102,22 +100,12 @@ public class SearchThread extends Thread {
 		Gui2.setTimeOnLabel(journeys88an.getJourneys().get(0).realDepTime() + " min",
 				journeys88an.getJourneys().get(1).realDepTime() + " min", 88);
 	}
-/*
-	public void loop() {
-		List<String> thisSearchURL= new ArrayList<String>();
-		thisSearchURL.add("80002");
-		thisSearchURL.add("80600");
-		thisSearchURL.add("80002");
-		thisSearchURL.add("801100");
 
-			for(int i=0; i>10; i++){
-				//Journeys journeys = Constants.getURL(thisSearchURL.get(i),thisSearchURL.get(i),2);
-
-				Journeys journeys = new Journeys;
-				journeys.addJourney(Constants.getURL(thisSearchURL.get(i),thisSearchURL.get(i),2)); //= Parser.getJourneys(searchURL);
-				TestGUI.setTimeOnLabel(journeys.getJourneys().get(0).realDepTime() + " min", 
-						journeys.getJourneys().get(0).realDepTime() + " min",(i));
-			}
 			
-	}*/
 }
+
+
+
+
+
+

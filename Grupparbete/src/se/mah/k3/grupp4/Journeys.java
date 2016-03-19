@@ -19,7 +19,9 @@ public class Journeys {
 	public void addJourney(Journey journey) {
 		this.journeys.add(journey);
 	}
-	
+	public void addJourneys(Journeys journeys) {
+		this.journeys.addAll(journeys.getJourneys());
+	}
 	@SuppressWarnings("unchecked")
 	public ArrayList<Journey> getJourneys() {
 		return journeys;
