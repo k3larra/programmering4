@@ -66,13 +66,12 @@ public class Gui2 extends JFrame {
 	 */
 	public Gui2() {
 		
-		Thread clock= new ClockThread();
-		clock.start();
+		
 
 		setBackground(Color.GRAY);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		double width = 1920;//screenSize.getWidth();
-		double height = 1080;//screenSize.getHeight();
+		double width = screenSize.getWidth();
+		double height = screenSize.getHeight();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(0, 0, (int) width, (int) height);
@@ -81,16 +80,14 @@ public class Gui2 extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		Thread t = new SearchThread();
-		t.start();
-		
-		 if( timer > (oldTimer+30000) ){
-		 Thread update= new SearchThread();
-		 update.start();
-		
-		 setTimer(cal.getTimeInMillis());
-		 oldTimer=timer;
-		 }
+				
+//		 if( timer > (oldTimer+30000) ){
+//		 Thread update= new SearchThread();
+//		 update.start();
+//		
+//		 setTimer(cal.getTimeInMillis());
+//		 oldTimer=timer;
+//		 }
 
 		label = new JLabel("");
 		label.setFont(new Font("Rockwell", Font.BOLD, 30));
@@ -213,6 +210,12 @@ public class Gui2 extends JFrame {
 				contentPane.add(lblNewLabel);
 				lblNewLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 				lblNewLabel.setIcon(new ImageIcon(Gui2.class.getResource("img/mockUp.jpg")));
+		
+				
+		Thread clock= new ClockThread();
+			clock.start();
+		Thread t = new SearchThread();
+			t.start();
 
 	}
 
@@ -277,7 +280,7 @@ public class Gui2 extends JFrame {
 	}
 
 	/**
-	*Sätter tiden i klockfältet
+	*Sï¿½tter tiden i klockfï¿½ltet
 	*/
 	public static void setTimeOnLabel(String time){
 		label_Clock.setText(time);			

@@ -3,7 +3,7 @@ package se.mah.k3.grupp4;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
-//kör klockan 
+//kÃ¶r klockan 
 	public class ClockThread extends Thread{
 				
 		        @Override
