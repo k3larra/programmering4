@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.util.Calendar;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -38,7 +39,9 @@ public class TestGUI extends JFrame {
 	private static JLabel label_18;
 	private static JLabel label_19;
 	private static JLabel label_20;
-
+	//private Calendar cal = Calendar.getInstance();
+	private static boolean update=false;
+	//private static ClockThread c= new ClockThread();
 
 	/**
 	 * Launch the application.
@@ -56,10 +59,28 @@ public class TestGUI extends JFrame {
 		});
 	}
 
+	public boolean isUpdate() {
+		return update;
+	}
+
+	public static void update() {
+		Thread t= new testSearchThread();
+		t.start();
+		update=false;
+
+		}
+
 	/**
 	 * Create the frame.
 	 */
 	public TestGUI() {
+		
+		Thread clock= new ClockThread();
+		clock.start();
+		
+		Thread t= new testSearchThread();
+		t.start();
+		
 		
 		setBackground(Color.GRAY);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -74,54 +95,54 @@ public class TestGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		label = new JLabel("");
+		label = new JLabel("0 min");
 		label.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
 		label.setBounds(414, 257, 82, 51);
 		contentPane.add(label);
 
-		label_1 = new JLabel("");
+		label_1 = new JLabel("0 min");
 		label_1.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
 		label_1.setBounds(541, 256, 82, 51);
 		contentPane.add(label_1);
 
-		label_2 = new JLabel("");
+		label_2 = new JLabel("0 min");
 		label_2.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
 		label_2.setBounds(523, 335, 100, 51);
 		contentPane.add(label_2);
 
-		label_3 = new JLabel("");
+		label_3 = new JLabel("0 min");
 		label_3.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
-		label_3.setBounds(396, 335, 100, 51);
+		label_3.setBounds(414, 335, 82, 51);
 		contentPane.add(label_3);
 
-		label_4 = new JLabel("");
+		label_4 = new JLabel("0 min");
 		label_4.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
 		label_4.setBounds(523, 421, 100, 51);
 		contentPane.add(label_4);
 
-		label_5 = new JLabel("");
+		label_5 = new JLabel("0 min");
 		label_5.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
-		label_5.setBounds(396, 421, 100, 51);
+		label_5.setBounds(414, 421, 82, 51);
 		contentPane.add(label_5);
 
-		label_6 = new JLabel("");
+		label_6 = new JLabel("0 min");
 		label_6.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
 		label_6.setBounds(523, 511, 100, 51);
 		contentPane.add(label_6);
 
-		label_7 = new JLabel("");
+		label_7 = new JLabel("0 min");
 		label_7.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
 		label_7.setBounds(414, 511, 82, 51);
 		contentPane.add(label_7);
 
-		label_8 = new JLabel("");
+		label_8 = new JLabel("0 min");
 		label_8.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
-		label_8.setBounds(523, 741, 100, 51);
+		label_8.setBounds(523, 600, 100, 51);
 		contentPane.add(label_8);
 
-		label_9 = new JLabel("");
+		label_9 = new JLabel("0 min");
 		label_9.setFont(new Font("Gill Sans MT", Font.PLAIN, 24));
-		label_9.setBounds(396, 741, 100, 51);
+		label_9.setBounds(414, 600, 82, 51);
 		contentPane.add(label_9);
 
 		label_Clock = new JLabel("12:00");
@@ -181,34 +202,37 @@ public class TestGUI extends JFrame {
 		label_20.setBounds(1044, 600, 100, 51);
 		contentPane.add(label_20);
 		
-		JLabel lblNewLabel = new JLabel("Mock Up");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TestGUI.class.getResource("img/mockUpSmall.jpg")));
 		lblNewLabel.setBounds(0, 0, (int)width, (int)height);
 		contentPane.add(lblNewLabel);
-	}
 
+	}
+	/**
+	*Sätter avgångstiden i labelfältet
+	*/
 		public static void setTimeOnLabel(String time, String time2, int line) {
 
-			if (line == 2) {
+			if (line == 1) {
 				label.setText(time);
 				label_1.setText(time2);
 			}
 
-			else if (line == 3) {
+			else if (line == 2) {
 				label_3.setText(time);
 				label_2.setText(time2);
 			}
-			else if (line == 5) {
+			else if (line == 3) {
 				label_5.setText(time);
 				label_4.setText(time2);
 			}
 
-			else if (line == 7) {
+			else if (line == 4) {
 				label_7.setText(time);
 				label_6.setText(time2);
 			}
 
-			else if (line == 8) {
+			else if (line == 5) {
 				label_9.setText(time);
 				label_8.setText(time2);
 
@@ -240,5 +264,14 @@ public class TestGUI extends JFrame {
 				label_19.setText(time2);
 			}
 	}
+
+
+		/**
+		*Sätter tiden i klockfältet
+		*/
+		public static void setTimeOnLabel(String time){
+			label_Clock.setText(time);
+					
+		}
 
 }
