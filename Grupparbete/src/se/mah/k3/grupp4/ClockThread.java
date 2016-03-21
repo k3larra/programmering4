@@ -5,14 +5,17 @@ import java.util.Calendar;
 
 //kör klockan 
 	public class ClockThread extends Thread{
-				
-		        @Override
+	Gui2 gui2;			
+		        public ClockThread(Gui2 gui22) {
+		// TODO Auto-generated constructor stub
+		        	this.gui2 = gui22;
+
+		        }
+				@Override
 				public void run(){
 		        	
-		        	//TestGUI gui= new TestGUI(this);
 		        	DecimalFormat decimalFormat = new DecimalFormat("00");
-					int lastUpdate=0;
-					int lastMinute=0;
+		
 						while(true) {
 							
 						Calendar cal = Calendar.getInstance();
@@ -21,14 +24,8 @@ import java.util.Calendar;
 						int minute = cal.get(Calendar.MINUTE);
 						int hour = cal.get(Calendar.HOUR_OF_DAY);
 
-						Gui2.setTimeOnLabel("" + decimalFormat.format(hour) + ":" +decimalFormat.format(minute) + ":" + decimalFormat.format(second));
-						//TestGUI.setTimeOnLabel("" + decimalFormat.format(hour) + ":" +decimalFormat.format(minute) + ":" + decimalFormat.format(second));
-						
-//						if(second> lastUpdate+30){// || minute>lastMinute){
-//							TestGUI.update();
-//							lastUpdate=second;
-//							lastMinute=minute;
-//						}
+						gui2.setTimeOnLabel("" + decimalFormat.format(hour) + ":" +decimalFormat.format(minute) + ":" + decimalFormat.format(second));
+		
 				
 						
 						try {

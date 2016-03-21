@@ -10,13 +10,13 @@ import org.w3c.dom.NodeList;
 
 public class Parser {
 	  /**
-  	 * Calls Skånetrafiken API and searches for stations containing a String
+  	 * Calls Skï¿½netrafiken API and searches for stations containing a String
   	 * Use this Url to test from a browser:
-  	 * http://www.labs.skanetrafiken.se/v2.2/querystation.asp?inpPointfr=malmö
+  	 * http://www.labs.skanetrafiken.se/v2.2/querystation.asp?inpPointfr=malmï¿½
   	 * More information
   	 * @param serachStart string to search for
   	 * @return list of stations that fulfils the search criteria. 
-  	 * Always returns a number of central stations like Malmö Copenhagen etc
+  	 * Always returns a number of central stations like Malmï¿½ Copenhagen etc
   	 * */
 	public static List<Station> getStationsFromURL(String searchStart){
 		List<Station> foundStations = new ArrayList<Station>();
@@ -42,9 +42,9 @@ public class Parser {
 	}
 	
 	 /**
-  	 * Calls Skånetrafiken API and searches for departures from a certain station to another station
+  	 * Calls Skï¿½netrafiken API and searches for departures from a certain station to another station
   	 * Use this URL to test from a browser:
-  	 * http://www.labs.skanetrafiken.se/v2.2/resultspage.asp?cmdaction=next&selPointFr=malmö%20C|80000|0&selPointTo=landskrona|82000|0&LastStart=2015-02-24 16:38
+  	 * http://www.labs.skanetrafiken.se/v2.2/resultspage.asp?cmdaction=next&selPointFr=malmï¿½%20C|80000|0&selPointTo=landskrona|82000|0&LastStart=2015-02-24 16:38
   	 * More information
   	 * @param serachURL string to search for
   	 * @return a Journeys object that contains information on journeys from a station to another specified station. 
@@ -120,15 +120,24 @@ public class Parser {
 			    thisJourney.setLineTypeName(parser.getValue(e, "TransportModeName"));
 			    thisJourney.setArrTimeDeviation( parser.getValue(e, "ArrTimeDeviation"));
 			    thisJourney.setDepTimeDeviation( parser.getValue(e, "DepTimeDeviation"));
-			    journeys.addJourney(thisJourney);
+
+			    //journeys.addJourney(thisJourney);
+
+			    if(!thisJourney.realDepTime().equals("0") || !thisJourney.realDepTime().equals("")){
+				    journeys.addJourney(thisJourney);
+			    }
+			    else {
+				    System.out.println("Deleted journey");
+
+				}
 			}
 		}
     	return journeys;
     }
 	
 	 /**
-  	 * Calls Skånetrafiken API and searches for nest departures from a certain station returns all lines leaving that station
-  	 * Use this Url to test from a browser from ubåtshallen:
+  	 * Calls Skï¿½netrafiken API and searches for nest departures from a certain station returns all lines leaving that station
+  	 * Use this Url to test from a browser from ubï¿½tshallen:
   	 * http://www.labs.skanetrafiken.se/v2.2/stationresults.asp?selPointFrKey=80046 
   	 * More information
   	 * @param Station departure station

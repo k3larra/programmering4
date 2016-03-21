@@ -18,36 +18,32 @@ import javax.swing.SwingConstants;
 public class Gui2 extends JFrame {
 
 	private JPanel contentPane;
-	private static JLabel label;
-	private static JLabel label_1;
-	private static JLabel label_2;
-	private static JLabel label_3;
-	private static JLabel label_4;
-	private static JLabel label_5;
-	private static JLabel label_6;
-	private static JLabel label_7;
-	private static JLabel label_8;
-	private static JLabel label_9;
-	private static JLabel label_Clock;
-	private static JLabel label_11;
-	private static JLabel label_12;
-	private static JLabel label_13;
-	private static JLabel label_14;
-	private static JLabel label_15;
-	private static JLabel label_16;
-	private static JLabel label_17;
-	private static JLabel label_18;
-	private static JLabel label_19;
-	private static JLabel label_20;
-
-
-	private static long timer;
-	private long oldTimer;
-	private Calendar cal = Calendar.getInstance();
+	private JLabel label;
+	private JLabel label_1;
+	private JLabel label_2;
+	private JLabel label_3;
+	private JLabel label_4;
+	private JLabel label_5;
+	private JLabel label_6;
+	private JLabel label_7;
+	private JLabel label_8;
+	private JLabel label_9;
+	private JLabel label_Clock;
+	private JLabel label_11;
+	private JLabel label_12;
+	private JLabel label_13;
+	private JLabel label_14;
+	private JLabel label_15;
+	private JLabel label_16;
+	private JLabel label_17;
+	private JLabel label_18;
+	private JLabel label_19;
+	private JLabel label_20;
 
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -65,10 +61,9 @@ public class Gui2 extends JFrame {
 	 * Create the frame.
 	 */
 	public Gui2() {
-		
-		
 
 		setBackground(Color.GRAY);
+		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double width = screenSize.getWidth();
 		double height = screenSize.getHeight();
@@ -80,14 +75,7 @@ public class Gui2 extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-				
-//		 if( timer > (oldTimer+30000) ){
-//		 Thread update= new SearchThread();
-//		 update.start();
-//		
-//		 setTimer(cal.getTimeInMillis());
-//		 oldTimer=timer;
-//		 }
+
 
 		label = new JLabel("");
 		label.setFont(new Font("Rockwell", Font.BOLD, 30));
@@ -204,38 +192,35 @@ public class Gui2 extends JFrame {
 		label_20.setFont(new Font("Rockwell", Font.BOLD, 30));
 		label_20.setBounds(1542, 846, 100, 51);
 		contentPane.add(label_20);
+
+		JLabel lblNewLabel = new JLabel("Mock Up");
+		lblNewLabel.setBounds(10, 0, 1960, 1081);
+		contentPane.add(lblNewLabel);
+		lblNewLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 		
-				JLabel lblNewLabel = new JLabel("Mock Up");
-				lblNewLabel.setBounds(10, 0, 1960, 1081);
-				contentPane.add(lblNewLabel);
-				lblNewLabel.setAlignmentY(Component.TOP_ALIGNMENT);
-				lblNewLabel.setIcon(new ImageIcon(Gui2.class.getResource("img/mockUp.jpg")));
-		
-				
-		Thread clock= new ClockThread();
-			clock.start();
-		Thread t = new SearchThread();
+		lblNewLabel.setIcon(new ImageIcon(Gui2.class.getResource("/se/mah/k3/grupp4/img/mockUp.jpg")));
+
+		Thread clock = new ClockThread(this);
+		clock.start();
+
+			Thread t = new SearchThread(this);
 			t.start();
 
+
 	}
 
-	public void setTimer(long timer) {
-		this.timer = timer;
-	}
-
-	public static void setTimeOnLabel(String time, String time2, int line) {
+	public void setTimeOnLabel(String time, String time2, int line) {
 
 		if (line == 2) {
 			label.setText(time);
 			label_1.setText(time2);
-			
+
 		}
 
 		else if (line == 3) {
 			label_3.setText(time);
 			label_2.setText(time2);
-		}
-		else if (line == 5) {
+		} else if (line == 5) {
 			label_5.setText(time);
 			label_4.setText(time2);
 		}
@@ -259,30 +244,26 @@ public class Gui2 extends JFrame {
 		else if (line == 33) {
 			label_14.setText(time);
 			label_13.setText(time2);
-		}
-		else if (line == 33) {
+		} else if (line == 33) {
 			label_14.setText(time);
 			label_13.setText(time2);
-		}
-		else if (line == 55) {
+		} else if (line == 55) {
 			label_16.setText(time);
 			label_15.setText(time2);
-		}
-		else if (line == 77) {
+		} else if (line == 77) {
 			label_18.setText(time);
 			label_17.setText(time2);
-		}
-		else if (line == 88) {
+		} else if (line == 88) {
 			label_20.setText(time);
 			label_19.setText(time2);
 		}
-		
+
 	}
 
 	/**
-	*S�tter tiden i klockf�ltet
-	*/
-	public static void setTimeOnLabel(String time){
-		label_Clock.setText(time);			
+	 * S�tter tiden i klockf�ltet
+	 */
+	public void setTimeOnLabel(String time) {
+		label_Clock.setText(time);
 	}
 }

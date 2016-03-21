@@ -28,11 +28,12 @@ public class Journey {
 		return depDateTime;
 	}
 	/* *
-	 *Den riktiga avgångstiden inkl. försening
+	 *Den riktiga avgï¿½ngstiden inkl. fï¿½rsening
 	 *@return String for Departure time with delay
 	 * */
 	
 	public String realDepTime(){
+		
  		int j = 0;
  		int i= Integer.parseInt(timeToDeparture);
  		
@@ -45,23 +46,23 @@ public class Journey {
  		return s;
  	}
 /* *
- * Samlar all tillgänglig info från en viss Journey
+ * Samlar all tillgï¿½nglig info frï¿½n en viss Journey
  * */
 	public String getInfo(String depTime, String arrTime){
-		String s=("\nAvgår: "+depTime + " från " + startStation.getStationName() 
+		String s=("\nAvgï¿½r: "+depTime + " frï¿½n " + startStation.getStationName() 
 		+"\n\nAnkommer: " +arrTime + " till: " +endStation.getStationName()
 		+ "\nByten: " +noOfChanges 
 		+"\nLinje: " +lineOnFirstJourney 
 		+"\nRestid: " +travelMinutes +" minuter"
-		+"\nAvgår om: " +timeToDeparture +" minuter"
+		+"\nAvgï¿½r om: " +timeToDeparture +" minuter"
 		+"\nAntal Zoner: " +noOfZones 
 		+"\nTrafikslag: " +lineTypeName +"\n------------------------\n");
 		
 		if(depTimeDeviation != ""){
-			s = ("OBS! Ankomsten är försenad med: "+arrTimeDeviation +"minuter\n"+s);
+			s = ("OBS! Ankomsten ï¿½r fï¿½rsenad med: "+arrTimeDeviation +"minuter\n"+s);
 		}
 		if(arrTimeDeviation != ""){
-			s = ("OBS! Avgången är försenad med: "+depTimeDeviation +"minuter\n"+s);
+			s = ("OBS! Avgï¿½ngen ï¿½r fï¿½rsenad med: "+depTimeDeviation +"minuter\n"+s);
 		}
 		return s; 
 	}
