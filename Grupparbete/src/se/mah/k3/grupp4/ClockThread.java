@@ -5,12 +5,18 @@ import java.util.Calendar;
 
 //kör klockan 
 	public class ClockThread extends Thread{
-	Gui2 gui2;			
+	private Gui2 gui2;
+	private TestGUI testGUI;			
 		        public ClockThread(Gui2 gui22) {
 		// TODO Auto-generated constructor stub
 		        	this.gui2 = gui22;
 
 		        }
+				public ClockThread(TestGUI testGUI) {
+					// TODO Auto-generated constructor stub
+					this.testGUI=testGUI;
+
+				}
 				@Override
 				public void run(){
 		        	
@@ -26,6 +32,7 @@ import java.util.Calendar;
 
 						gui2.setTimeOnLabel("" + decimalFormat.format(hour) + ":" +decimalFormat.format(minute) + ":" + decimalFormat.format(second));
 		
+						//testGUI.setTimeOnLabel("" + decimalFormat.format(hour) + ":" +decimalFormat.format(minute) + ":" + decimalFormat.format(second));
 				
 						
 						try {

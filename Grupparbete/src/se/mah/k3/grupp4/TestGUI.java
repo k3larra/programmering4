@@ -18,31 +18,29 @@ import javax.swing.SwingConstants;
 public class TestGUI extends JFrame {
 
 	private JPanel contentPane;
-	private static JLabel label;
-	private static JLabel label_1;
-	private static JLabel label_2;
-	private static JLabel label_3;
-	private static JLabel label_4;
-	private static JLabel label_5;
-	private static JLabel label_6;
-	private static JLabel label_7;
-	private static JLabel label_8;
-	private static JLabel label_9;
-	private static JLabel label_Clock;
-	private static JLabel label_11;
-	private static JLabel label_12;
-	private static JLabel label_13;
-	private static JLabel label_14;
-	private static JLabel label_15;
-	private static JLabel label_16;
-	private static JLabel label_17;
-	private static JLabel label_18;
-	private static JLabel label_19;
-	private static JLabel label_20;
-	//private Calendar cal = Calendar.getInstance();
-	private static boolean update=false;
-	//private static ClockThread c= new ClockThread();
-
+	private JLabel label;
+	private JLabel label_1;
+	private JLabel label_2;
+	private JLabel label_3;
+	private JLabel label_4;
+	private JLabel label_5;
+	private JLabel label_6;
+	private JLabel label_7;
+	private JLabel label_8;
+	private JLabel label_9;
+	private JLabel label_Clock;
+	private JLabel label_11;
+	private JLabel label_12;
+	private JLabel label_13;
+	private JLabel label_14;
+	private JLabel label_15;
+	private JLabel label_16;
+	private JLabel label_17;
+	private JLabel label_18;
+	private JLabel label_19;
+	private JLabel label_20;
+	private Gui2 gui2;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -59,27 +57,12 @@ public class TestGUI extends JFrame {
 		});
 	}
 
-	public boolean isUpdate() {
-		return update;
-	}
-
-	public static void update() {
-		Thread t= new testSearchThread();
-		t.start();
-		update=false;
-
-		}
+		
 
 	/**
 	 * Create the frame.
 	 */
 	public TestGUI() {
-		
-		Thread clock= new ClockThread();
-		clock.start();
-		
-		Thread t= new testSearchThread();
-		t.start();
 		
 		
 		setBackground(Color.GRAY);
@@ -87,10 +70,10 @@ public class TestGUI extends JFrame {
 		double width = screenSize.getWidth();
 		double height = screenSize.getHeight();
 
-
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(0, 0, (int)width, (int)height);
 		this.setUndecorated(true);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -206,12 +189,18 @@ public class TestGUI extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(TestGUI.class.getResource("img/mockUpSmall.jpg")));
 		lblNewLabel.setBounds(0, 0, (int)width, (int)height);
 		contentPane.add(lblNewLabel);
-
+		
+		Thread clock= new ClockThread(this);
+		clock.start();
+		
+		Thread t= new testSearchThread(this);
+		t.start();
+		
 	}
 	/**
 	*Sätter avgångstiden i labelfältet
 	*/
-		public static void setTimeOnLabel(String time, String time2, int line) {
+		public void setTimeOnLabel(String time, String time2, int line) {
 
 			if (line == 1) {
 				label.setText(time);
@@ -265,11 +254,10 @@ public class TestGUI extends JFrame {
 			}
 	}
 
-
 		/**
 		*Sätter tiden i klockfältet
 		*/
-		public static void setTimeOnLabel(String time){
+		public void setTimeOnLabel(String time){
 			label_Clock.setText(time);
 					
 		}

@@ -11,6 +11,11 @@ import se.mah.k3.grupp4.Parser;
 public class testSearchThread extends Thread {
 	String searchURL;
 	Journeys journeys;
+TestGUI testGui;
+
+public testSearchThread(TestGUI test) {
+	this.testGui = test;
+}
 
 	@Override
 	public void run() {
@@ -25,7 +30,7 @@ public class testSearchThread extends Thread {
 			//print(journeys);
 
 			
-			TestGUI.setTimeOnLabel(journeys.getJourneys().get(i+1).realDepTime() + " min",
+			testGui.setTimeOnLabel(journeys.getJourneys().get(i+1).realDepTime() + " min",
 					journeys.getJourneys().get(i + 2).realDepTime() + " min", i);
 			System.out.println(journeys.getJourneys().get(i).getTimeToDeparture());
 		

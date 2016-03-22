@@ -1,5 +1,6 @@
 package se.mah.k3.grupp4;
 
+import java.awt.Component;
 import java.util.ArrayList;
 /**
  * Journeys class can hold a number of or singular journeys. 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  *
  */
 public class Journeys {
-	private static ArrayList<Journey> journeys;
+	private ArrayList<Journey> journeys;
 	
 	//Creates a list of journeys
 	public Journeys() {
@@ -19,15 +20,20 @@ public class Journeys {
 	public void addJourney(Journey journey) {
 		this.journeys.add(journey);
 	}
-	public void addJourneys(Journeys journeys) {
-		this.journeys.addAll(journeys.getJourneys());
-	}
+//	public void addJourneys(Journeys journeys) {
+//		this.journeys.addAll(journeys.getJourneys());
+	
 	@SuppressWarnings("unchecked")
-	public ArrayList<Journey> getJourneys() {
-		return journeys;
+	public Journey getJourney(int get) {
+		return journeys.get(get);
 	}
 	
 	public void clearJourneys() {
 		this.journeys.clear();
+	}
+
+	public ArrayList<Journey> getJourneys() {
+		// TODO Auto-generated method stub
+		return journeys;
 	}
 }

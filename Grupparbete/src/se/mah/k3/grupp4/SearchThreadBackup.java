@@ -10,7 +10,8 @@ import se.mah.k3.grupp4.Constants;
 import se.mah.k3.grupp4.Parser;
 
 public class SearchThreadBackup extends Thread {
-	String searchURL;
+	private String searchURL;
+	private TestGUI testGUI;
 	 
 
 	/** Prints info for debug */
@@ -29,75 +30,102 @@ public class SearchThreadBackup extends Thread {
 			e.printStackTrace();
 		}
 	}
+
 	@Override
 	public void run() {
 
+	while (true) {
+
 		// mot c 2an
-		searchURL = Constants.getURL("80002", "80600", 2);
+		searchURL = Constants.getURL("80002", "80600", 3);
 		Journeys journeys = Parser.getJourneys(searchURL);
 
 		print(journeys);
 
-		Gui2.setTimeOnLabel(journeys.getJourneys().get(0).realDepTime() + " min",
-				journeys.getJourneys().get(1).realDepTime() + " min", 2);
+		testGUI.setTimeOnLabel(journeys.getJourney(0).getRealDepTime() + " min",
+				journeys.getJourney(1).getRealDepTime() + " min", 2);
 
 		// mot c 3an
-		searchURL = Constants.getURL("80002", "80110", 2);
+		searchURL = Constants.getURL("80002", "80110", 3);
 		Journeys journeys3an = Parser.getJourneys(searchURL);
 		print(journeys3an);
 
 		// Send to GUI
-		Gui2.setTimeOnLabel(journeys3an.getJourneys().get(0).realDepTime() + " min",
+		testGUI.setTimeOnLabel(journeys3an.getJourneys().get(0).realDepTime() + " min",
 				journeys3an.getJourneys().get(1).realDepTime() + " min", 3);
 
 		// 5:an mot Malmö C
-		searchURL = Constants.getURL("80002", "80840", 2);
+		searchURL = Constants.getURL("80002", "80840", 3);
 		Journeys journeys5an = Parser.getJourneys(searchURL);
-		Gui2.setTimeOnLabel(journeys5an.getJourneys().get(0).realDepTime() + " min",
+		print(journeys5an);
+
+		testGUI.setTimeOnLabel(journeys5an.getJourneys().get(0).realDepTime() + " min",
 				journeys5an.getJourneys().get(1).realDepTime() + " min", 5);
 
 		// 7:an mot Malmö C
-		searchURL = Constants.getURL("80002", "80580", 2);
+		searchURL = Constants.getURL("80002", "80580", 3);
 		Journeys journeys7an = Parser.getJourneys(searchURL);
-		Gui2.setTimeOnLabel(journeys7an.getJourneys().get(0).realDepTime() + " min",
+		print(journeys7an);
+
+		testGUI.setTimeOnLabel(journeys7an.getJourneys().get(0).realDepTime() + " min",
 				journeys7an.getJourneys().get(1).realDepTime() + " min", 7);
-	
 
-		//8:an mot Malmö C
+		// 8:an mot Malmö C
 
-		searchURL = Constants.getURL("80002", "80660", 2);
+		searchURL = Constants.getURL("80002", "80660", 3);
 		Journeys journeys8an = Parser.getJourneys(searchURL);
-		Gui2.setTimeOnLabel(journeys8an.getJourneys().get(0).realDepTime() + " min",
-				journeys8an.getJourneys().get(1).realDepTime() + " min", 8);
-		
-		//2:an från Malmö C
+		print(journeys8an);
 
-		searchURL = Constants.getURL("80002", "80005", 2);
+		testGUI.setTimeOnLabel(journeys8an.getJourneys().get(0).realDepTime() + " min",
+				journeys8an.getJourneys().get(1).realDepTime() + " min", 8);
+
+		// 2:an från Malmö C
+
+		searchURL = Constants.getURL("80002", "80005", 3);
 
 		Journeys journeys22an = Parser.getJourneys(searchURL);
-		Gui2.setTimeOnLabel(journeys22an.getJourneys().get(0).realDepTime() + " min",
+		print(journeys22an);
+
+		testGUI.setTimeOnLabel(journeys22an.getJourneys().get(0).realDepTime() + " min",
 				journeys22an.getJourneys().get(1).realDepTime() + " min", 22);
-		//3:an från Malmö C
-		searchURL = Constants.getURL("80002", "80300", 2);
+		// 3:an från Malmö C
+		searchURL = Constants.getURL("80002", "80300", 3);
 		Journeys journeys33an = Parser.getJourneys(searchURL);
-		Gui2.setTimeOnLabel(journeys33an.getJourneys().get(0).realDepTime() + " min",
+		print(journeys33an);
+
+		testGUI.setTimeOnLabel(journeys33an.getJourneys().get(0).realDepTime() + " min",
 				journeys33an.getJourneys().get(1).realDepTime() + " min", 33);
-		
-		//3:an från Malmö C
-		String searchURL = Constants.getURL("80002", "80004", 2);
+
+		// 3:an frï¿½n Malmï¿½ C
+		String searchURL = Constants.getURL("80002", "80004", 3);
 		Journeys journeys55an = Parser.getJourneys(searchURL);
-		Gui2.setTimeOnLabel(journeys55an.getJourneys().get(0).realDepTime() + " min",
+		print(journeys55an);
+
+		testGUI.setTimeOnLabel(journeys55an.getJourneys().get(0).realDepTime() + " min",
 				journeys55an.getJourneys().get(1).realDepTime() + " min", 55);
-	
-		searchURL = Constants.getURL("80002", "80338", 2);
+
+		searchURL = Constants.getURL("80002", "80338", 3);
 		Journeys journeys77an = Parser.getJourneys(searchURL);
-		Gui2.setTimeOnLabel(journeys77an.getJourneys().get(0).realDepTime() + " min",
+		print(journeys77an);
+
+		testGUI.setTimeOnLabel(journeys77an.getJourneys().get(0).realDepTime() + " min",
 				journeys77an.getJourneys().get(1).realDepTime() + " min", 77);
-	
-		searchURL = Constants.getURL("80002", "80040", 2);
+
+		searchURL = Constants.getURL("80002", "80040", 3);
 		Journeys journeys88an = Parser.getJourneys(searchURL);
-		Gui2.setTimeOnLabel(journeys88an.getJourneys().get(0).realDepTime() + " min",
+		print(journeys88an);
+
+		testGUI.setTimeOnLabel(journeys88an.getJourneys().get(0).realDepTime() + " min",
 				journeys88an.getJourneys().get(1).realDepTime() + " min", 88);
+
+		try {
+			Thread.sleep(20000);
+
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	}
 
 			

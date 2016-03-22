@@ -19,6 +19,7 @@ public class Journey {
 	private String arrTimeDeviation;
 	private Station startStation;
 	private Station endStation;
+	private String realDepTime;
 	
 	public Journey(Station startStation, Station endStation) {
 		this.startStation = startStation;
@@ -32,7 +33,7 @@ public class Journey {
 	 *@return String for Departure time with delay
 	 * */
 	
-	public String realDepTime(){
+	public String getRealDepTime(){
 		
  		int j = 0;
  		int i= Integer.parseInt(timeToDeparture);
@@ -41,9 +42,9 @@ public class Journey {
  		j= Integer.parseInt(depTimeDeviation);
  		}
  		
- 		String s = Integer.toString(i+j);
+ 		realDepTime = Integer.toString(i+j);
  		
- 		return s;
+ 		return realDepTime;
  	}
 /* *
  * Samlar all tillg�nglig info fr�n en viss Journey
