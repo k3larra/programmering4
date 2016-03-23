@@ -30,8 +30,8 @@ public testSearchThread(TestGUI test) {
 			//print(journeys);
 
 			
-			testGui.setTimeOnLabel(journeys.getJourneys().get(i+1).realDepTime() + " min",
-					journeys.getJourneys().get(i + 2).realDepTime() + " min", i);
+			testGui.setTimeOnLabel(journeys.getJourneys().get(i+1).getRealDepTime() + " min",
+					journeys.getJourneys().get(i + 2).getRealDepTime() + " min", i);
 			System.out.println(journeys.getJourneys().get(i).getTimeToDeparture());
 		
 

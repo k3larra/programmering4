@@ -38,7 +38,7 @@ public class Journey {
  		int j = 0;
  		int i= Integer.parseInt(timeToDeparture);
  		
- 		if(depTimeDeviation!=""){
+ 		if(depTimeDeviation != ""){
  		j= Integer.parseInt(depTimeDeviation);
  		}
  		

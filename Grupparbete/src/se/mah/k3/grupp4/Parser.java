@@ -130,15 +130,15 @@ public class Parser {
 				thisJourney.setLineTypeName(parser.getValue(e, "TransportModeName"));
 				thisJourney.setArrTimeDeviation(parser.getValue(e, "ArrTimeDeviation"));
 				thisJourney.setDepTimeDeviation(parser.getValue(e, "DepTimeDeviation"));
+				journeys.addJourney(thisJourney);
 
-				if (thisJourney.getRealDepTime().equals("0") == false
-						&& thisJourney.getRealDepTime().contains("-") == false
-						&& thisJourney.getRealDepTime().equals("") == false) {
+/*				if (!thisJourney.getRealDepTime().equals("0")) {
+				&&!thisJourney.getRealDepTime().contains("-")
+						&& !thisJourney.getRealDepTime().equals("")) {
 					if (Integer.parseInt(thisJourney.getRealDepTime()) > 0) {
-						//if (fromStation.getStationNbr() == "80002") {
+			if (!thisJourney.getStartStation().getStationNbr().contentEquals("80002")) {
 							
-							journeys.addJourney(thisJourney);
-						//}
+						}
 
 					}
 				} else {
@@ -147,7 +147,7 @@ public class Parser {
 					System.out.println("Deleted journey");
 					System.out.println(thisJourney.getStartStation().getStationName()+" - "+thisJourney.getEndStation().getStationName());
 
-				}
+				}*/
 			}
 		}
 		return journeys;

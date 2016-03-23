@@ -40,8 +40,8 @@ public class SearchThread2 extends Thread {
 
 			//print(journeys);
 
-			gui2.setTimeOnLabel(journeys.getJourney(0).realDepTime() + " min",
-					journeys.getJourney(1).realDepTime() + " min", label);
+			gui2.setTimeOnLabel(journeys.getJourney(0).getRealDepTime() + " min",
+					journeys.getJourney(1).getRealDepTime() + " min", label);
 
 			try {
 				Thread.sleep(20000);
