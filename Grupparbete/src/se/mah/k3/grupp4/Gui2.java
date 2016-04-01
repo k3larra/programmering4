@@ -15,6 +15,7 @@ import java.awt.Component;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class Gui2 extends JFrame {
 
@@ -40,7 +41,7 @@ public class Gui2 extends JFrame {
 	private JLabel label_18;
 	private JLabel label_19;
 	private JLabel label_20;
-	private JScrollPane scrollPane;
+	private JLabel errorLabel;
 
 	/**
 	 * Launch the application.
@@ -69,9 +70,9 @@ public class Gui2 extends JFrame {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double width = screenSize.getWidth();
 		double height = screenSize.getHeight();
-		int labelWidth = 120;
+		int labelWidth = 110;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(0, 0, (int) width, (int) height);
+		this.setBounds(0, 0, 1920, 1080);
 		this.setUndecorated(true);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -194,19 +195,25 @@ public class Gui2 extends JFrame {
 		label_20.setBounds(1542, 846, labelWidth, 51);
 		contentPane.add(label_20);
 
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 0, 1960, 1081);
-		contentPane.add(scrollPane);
+		errorLabel = new JLabel("");
+		errorLabel.setBounds(0, 0, 1920, 40);
+		contentPane.add(errorLabel);
+		errorLabel.setBackground(Color.RED);
+		errorLabel.setForeground(Color.WHITE);
+		errorLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 
 		JLabel lblNewLabel = new JLabel("");
-		scrollPane.setViewportView(lblNewLabel);
+		lblNewLabel.setBounds(0, 0, 1941, 1081);
+		contentPane.add(lblNewLabel);
 		lblNewLabel.setAlignmentY(Component.TOP_ALIGNMENT);
 
 		lblNewLabel.setIcon(new ImageIcon(Gui2.class.getResource("img/annapanna.png")));
 
 		String[] stationsCode = { "80002", "80600", "80110", "80840", "80580", "80660", "80005", "80300", "80004",
 				"80338", "80040" };
-
+		/**
+		 * Numret på labels för de olika busslinjerna
+		 */
 		int[] label = { 2, 3, 5, 7, 8, 22, 33, 55, 77, 88 };
 		Thread clock = new ClockThread(this);
 		clock.start();
@@ -233,12 +240,13 @@ public class Gui2 extends JFrame {
 			Thread t9 = new SearchThread(this, stationsCode[0], stationsCode[10], label[9]);
 			t9.start();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
 	}
 
+	/** Sätter ut de olika avgångstiderna */
 	public void setTimeOnLabel(String time, String time2, int line) {
 
 		if (line == 2) {
@@ -301,5 +309,13 @@ public class Gui2 extends JFrame {
 	 */
 	public void setTimeOnLabel(String time) {
 		label_Clock.setText(time);
+	}
+
+	/**
+	 * Skriver ut felmeddelanden
+	 */
+	public void setErrorOnLabel(String err) {
+		errorLabel.setVisible(true);
+		errorLabel.setText(err);
 	}
 }

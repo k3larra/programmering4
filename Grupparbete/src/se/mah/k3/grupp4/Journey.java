@@ -50,7 +50,7 @@ public class Journey {
  * Samlar all tillgï¿½nglig info frï¿½n en viss Journey
  * */
 	public String getInfo(String depTime, String arrTime){
-		String s=("\nAvgï¿½r: "+depTime + " frï¿½n " + startStation.getStationName() 
+		String s=("\nAvgår: "+depTime + " från " + startStation.getStationName() 
 		+"\n\nAnkommer: " +arrTime + " till: " +endStation.getStationName()
 		+ "\nByten: " +noOfChanges 
 		+"\nLinje: " +lineOnFirstJourney 

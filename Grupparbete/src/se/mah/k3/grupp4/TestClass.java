@@ -6,11 +6,11 @@ import se.mah.k3.grupp4.Constants;
 public class TestClass {
 
 	public static void main(String[] args) {
-		String searchURL = Constants.getURL("80000","81216",2);
+		String searchURL = Constants.getURL("80002","81216",5);
 		//Denna metod hämtar söksträngen för resa från Malmö till Lund, med 20 resultat //Malmö C = 80000,  Lund C, 81216 Malmö Gatorg 80100, Hässleholm C 93070
 
 		System.out.println(searchURL);
-		System.out.println("// Results when searching:");
+		System.out.println("// Results when searching://");
 		
 		Journeys journeys = Parser.getJourneys(searchURL); 
 		for (Journey journey : journeys.getJourneys()) {

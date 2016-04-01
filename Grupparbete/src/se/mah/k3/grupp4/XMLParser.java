@@ -61,6 +61,7 @@ public class XMLParser {
 		        is.setCharacterStream(new StringReader(xml));
 		        doc = db.parse(is); 
 			} catch (ParserConfigurationException e) {
+				System.out.println("Parsing Error");
 				return null;
 			} catch (SAXException e) {
 	            return null;

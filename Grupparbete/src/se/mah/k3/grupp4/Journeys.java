@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Journeys {
 	private ArrayList<Journey> journeys;
+	private String errorMsg;
 	
 	//Constructor: Creates a list of journeys
 	public Journeys() {
@@ -18,12 +19,15 @@ public class Journeys {
 	public void addJourney(Journey journey) {
 		this.journeys.add(journey);
 	}
-//	public void addJourneys(Journeys journeys) {
-//		this.journeys.addAll(journeys.getJourneys());
 	
 	@SuppressWarnings("unchecked")
 	public Journey getJourney(int get) {
+		if(get < journeys.size()){
 		return journeys.get(get);
+		}
+		else{
+			return null;
+		}
 	}
 	
 	public void clearJourneys() {
@@ -31,7 +35,14 @@ public class Journeys {
 	}
 
 	public ArrayList<Journey> getJourneys() {
-		// TODO Auto-generated method stub
 		return journeys;
+	}
+
+	public void setErrorMsg(String error) {
+		this.errorMsg = error;
+	}
+
+	public String getError() {
+		return errorMsg;
 	}
 }
